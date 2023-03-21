@@ -1,0 +1,69 @@
+.plane-grey {
+    width: 100%;
+    height: 570px;
+    background-color: #F2F2F2;
+  }
+
+.plane-grey h1 {
+    margin: 0;
+    padding-top: 100px;
+    text-align: center;
+    font-size: 50px;
+}
+
+.hr-line {
+    margin: 20px auto 0 auto;
+    height: 2px;
+    width: 120px;
+    background-color: black;
+}
+
+.search-bar-container input[type=text] {
+    font-weight: 200;
+    color: black;
+    font-size: 20px;
+    width: 350px;
+    background-color: transparent;
+    border: none;
+    border-bottom: black 3px solid;
+    outline: none;
+    padding-bottom: 10px;
+}
+
+input[type="text" i] {
+    padding: 4px 0;
+}
+
+.search-bar-container input::placeholder {
+    color: black;
+}
+
+.search-bar-container {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+svg {
+    /* top: 5px; */
+    position: relative;
+    right: 20px;
+}
+
+button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.product-row {
+    display: flex;
+}
+
+.product-row img {
+    width: calc(100% / 6);
+}
