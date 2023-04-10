@@ -6,6 +6,7 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='../public/stylesheets/home.css')
     link(rel='stylesheet' href='../public/stylesheets/style.css')
+    script(src='https://kit.fontawesome.com/78a4a1d08b.js' crossorigin='anonymous')
     title Document
   body
     nav
@@ -23,12 +24,27 @@ html(lang='en')
     .plane-grey
       h1 Products
       .hr-line
-      .search-bar-container
-        input(type='text' placeholder='Search for a product')
-        button
-          svg.bi.bi-arrow-right(xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewBox='0 0 16 16')
-            path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')
-    .product-row
-      each product in products
-        img(src=".." + product.src)
-    script(src='../public/javascripts/script.js')
+      form(action='/pages/home' method='get')
+        .search-bar-container
+          input(type='text' name='searchInput' placeholder='Search for a product')
+          button(type='submit')
+            i.fa-solid.fa-arrow-right
+      .product-row
+        if searchInput
+          each product in products
+            .product
+              img(src=".." + product.src)
+              .product-info
+                h3= product.naam
+                hr
+                p= product.beschrijving
+        else
+          each product in products.slice(0, 6)
+            .product
+              img(src=".." + product.src)
+              .product-info
+                h3= product.naam
+                hr
+                p= product.beschrijving
+
+      script(src='../public/javascripts/script.js')

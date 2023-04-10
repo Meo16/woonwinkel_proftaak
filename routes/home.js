@@ -16,10 +16,17 @@ connection.connect((err) => {
 
 /* GET home page. */
 router.get('/pages/home', function(req, res, next) {
-  connection.query('SELECT * from products', (err, products) => {
+  let searchInput = req.query.searchInput;
+  let query = `SELECT * from products`;
+  if(searchInput){
+    query += ` WHERE naam LIKE '%${searchInput}%'`;
+  }
+  connection.query(query, (err, products) => {
+    
     if (err) throw err;
-    res.render('home', { products: products });
-});
+    res.render('home', { products: products, searchInput: searchInput });
+  });
 });
 
 module.exports = router;
+
