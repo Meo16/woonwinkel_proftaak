@@ -7,7 +7,6 @@ var logger = require('morgan');
 var contactRouter = require('./routes/contact');
 var homeRouter = require('./routes/home');
 
-
 var app = express();
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Express server currently running on port ${PORT}`));
@@ -20,6 +19,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use('/img', express.static(path.join(__dirname, 'img')));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
@@ -41,5 +41,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

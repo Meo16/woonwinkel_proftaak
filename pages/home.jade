@@ -13,13 +13,13 @@ html(lang='en')
         li
           a(href='/pages/home') Products
         li
-          a(href='') Store Finder
+          a(href='/pages/storeFinder') Store Finder
         li
-          a(href='') About
+          a(href='/pages/about') About
         li
           a(href='/pages/contact') Contact
         li
-          a(href='') Downloads
+          a(href='/pages/downloads') Downloads
     .plane-grey
       h1 Products
       .hr-line
@@ -29,10 +29,6 @@ html(lang='en')
           svg.bi.bi-arrow-right(xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' viewBox='0 0 16 16')
             path(fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z')
     .product-row
-      img(src='../img/dining1.png')
-      img(src='../img/dining2.png')
-      img(src='../img/dining3.png')
-      img(src='../img/dining4.png')
-      img(src='../img/dining5.png')
-      img(src='../img/lamp1.png')
+      each product in products
+        img(src=".." + product.src)
     script(src='../public/javascripts/script.js')
